@@ -33,16 +33,16 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     },
 });
+
 const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
+
 app.post("/auth/register", upload.single("picture"), register);
 
-
-
-
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 6001;
+mongoose.set('strictQuery', true);
+const PORT = process.env.PORT || 6000;
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
@@ -51,4 +51,4 @@ mongoose
     .then(() => {
         app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
     })
-    .catch((error) => console.log(`${error} did not connect`));
+    .catch((error) => console.log(`${error} DID NOT CONNECT`));
