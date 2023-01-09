@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
     friends: { type: Array, default: [] },
     location: String,
     occupation: String,
-    viewProfile: Number,
+    viewedProfile: Number,
     impressions: Number,
 
 
