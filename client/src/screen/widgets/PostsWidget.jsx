@@ -9,23 +9,23 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const respense = await fetch('http://localhost:3010/posts', {
+    const response = await fetch('http://localhost:3010/posts', {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
-    const data = await respense.json();
+    const data = await response.json();
     dispatch(setPosts({ posts: data }));
   };
 
   const getUserPosts = async () => {
-    const respense = await fetch(
+    const response = await fetch(
       `http://localhost:3010/posts/${userId}/posts`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    const data = await respense.json();
+    const data = await response.json();
     dispatch(setPosts({ posts: data }));
   };
 
@@ -35,8 +35,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     } else {
       getPosts();
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  console.log('Post widgets:', posts);
   return (
     <>
       {posts.map(

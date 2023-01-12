@@ -1,14 +1,14 @@
 
+import { useMemo } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./screen/homePage";
-import LoginPage from "./screen/loginPage";
-import ProfilePage from "./screen/profilePage";
+import HomePage from "screen/homePage";
+import LoginPage from "screen/loginPage";
+import ProfilePage from "screen/profilePage";
 
 import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import { useMemo } from "react";
 
 function App() {
 
